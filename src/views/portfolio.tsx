@@ -75,7 +75,7 @@ const PORTFOLIO = [
 
 export default function Portfolio() {
   return (
-    <div className="my-8" id="portfolio">
+    <div id="portfolio">
       <h3 className="font-bold text-2xl mb-4">Portfolio</h3>
       <div className="gap-6 grid grid-cols-1 md:grid-cols-2 ">
         {PORTFOLIO.map(({ name, description, content, link, image, type }) => (

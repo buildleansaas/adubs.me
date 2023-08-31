@@ -44,7 +44,7 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <div className="my-8" id="services">
+    <div id="services">
       <h3 className="font-bold text-2xl mb-4">Services</h3>
       <div className="gap-6 grid grid-cols-1 md:grid-cols-2 ">
         {SERVICES.map(({ name, description, content, price, discounted, link }) => (

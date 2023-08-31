@@ -24,7 +24,7 @@ const TESTMONIALS = [
 
 export default function Testimonials() {
   return (
-    <div className="my-8" id="testimonials">
+    <div id="testimonials">
       <h3 className="font-bold text-2xl mb-4">Testimonials</h3>
       <div className="gap-6 grid grid-cols-1 md:grid-cols-2 ">
         {TESTMONIALS.map(({ name, context, text, img }) => (

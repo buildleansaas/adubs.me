@@ -1,6 +1,9 @@
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
 
-export const SERVICES = [
+const SERVICES = [
   {
     name: "👨‍💻 Pair Programming",
     description: "70 Minutes of focused planning and coding together.",
@@ -38,3 +41,36 @@ export const SERVICES = [
     link: "https://adubs.lemonsqueezy.com/checkout/buy/63df7bb0-1f15-4ae6-891e-25eaf189c950",
   },
 ];
+
+export default function Services() {
+  return (
+    <div className="my-8" id="services">
+      <h3 className="font-bold text-2xl mb-4">Services</h3>
+      <div className="gap-6 grid grid-cols-1 md:grid-cols-2 ">
+        {SERVICES.map(({ name, description, content, price, discounted, link }) => (
+          <Card key={name}>
+            <CardHeader>
+              <CardTitle>{name}</CardTitle>
+              <CardDescription>{description}</CardDescription>
+            </CardHeader>
+            <CardContent>{content}</CardContent>
+            <CardFooter>
+              <Button asChild>
+                <Link href={link} className="hover:bg-purple-500">
+                  {discounted ? (
+                    <>
+                      <span className="line-through mr-1">${price}</span>
+                      <span>${discounted}</span>
+                    </>
+                  ) : (
+                    `$${price}`
+                  )}
+                </Link>
+              </Button>
+            </CardFooter>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}

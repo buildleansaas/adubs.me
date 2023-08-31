@@ -1,4 +1,9 @@
-export const PORTFOLIO = [
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
+
+const PORTFOLIO = [
   {
     name: "📈 Scale Sleek",
     description: "Search Engine Optimization for the Rest of Us",
@@ -67,3 +72,35 @@ export const PORTFOLIO = [
     link: "https://hawaiischoolofyoga.com",
   },
 ];
+
+export default function Portfolio() {
+  return (
+    <div className="my-8" id="portfolio">
+      <h3 className="font-bold text-2xl mb-4">Portfolio</h3>
+      <div className="gap-6 grid grid-cols-1 md:grid-cols-2 ">
+        {PORTFOLIO.map(({ name, description, content, link, image, type }) => (
+          <Card key={name}>
+            <CardHeader>
+              <CardTitle className="flex justify-between">
+                {name} <Badge className="ml-auto bg-purple-500">{type}</Badge>
+              </CardTitle>
+              <CardDescription>{description}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img alt={name} src={`/portfolio/${image}`} className="mb-4 rounded-lg" />
+              <>{content}</>
+            </CardContent>
+            <CardFooter>
+              <Button asChild>
+                <Link href={link} className="hover:bg-purple-500">
+                  Check it Out!
+                </Link>
+              </Button>
+            </CardFooter>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}

@@ -127,6 +127,39 @@ const PORTFOLIO = [
     ),
     link: "https://tryq.ai",
   },
+  {
+    name: "Ubuntu Med Spa",
+    description: "Website and Blog for Med Spa Client",
+    type: "Client",
+    image: "/ubuntumedspa.png",
+    content: (
+      <div className="space-y-4">
+        <p>
+          Ubuntu Med Spa is a Med Spa in New Kent, Virginia. I was hired to build a simple marketing site for them.
+          Instead of going with a complex and costly implementation, we kept overall costs down to $20 a MONTH and are
+          driving organic traffic successfully via search engine optimization.
+        </p>
+      </div>
+    ),
+    link: "https://tryq.ai",
+  },
+  {
+    name: "Hawai'i School fo Yoga",
+    description: "Website and Blog for Yoga Studio",
+    type: "Client",
+    image: "/hsy.jpg",
+    content: (
+      <div className="space-y-4">
+        <p>
+          Hawai&apos;i school of Yoga is a Yoga Studio based in Oahu, Hawai&apos;i, where I trained to become a Yoga
+          Instructor and recieved my 500 hour yoga teacher training certificate. Instead of going with a complex and
+          costly implementation, we kept overall costs down to $20 a YEAR and are driving organic traffic successfully
+          via search engine optimization.
+        </p>
+      </div>
+    ),
+    link: "https://tryq.ai",
+  },
 ];
 
 export default function Home() {
@@ -249,14 +282,16 @@ export default function Home() {
           <div className="my-8" id="portfolio">
             <h3 className="font-bold text-lg mb-4">Portfolio</h3>
             <div className="gap-6 grid grid-cols-1 md:grid-cols-2 ">
-              {PORTFOLIO.map(({ name, description, content, link, image }) => (
+              {PORTFOLIO.map(({ name, description, content, link, image, type }) => (
                 <Card key={name}>
                   <CardHeader>
-                    <CardTitle>{name}</CardTitle>
+                    <CardTitle className="flex justify-between">
+                      {name} <Badge className="ml-auto bg-purple-500">{type}</Badge>
+                    </CardTitle>
                     <CardDescription>{description}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <img alt={name} src={image} />
+                    <img alt={name} src={image} className="mb-4 rounded-lg" />
                     <>{content}</>
                   </CardContent>
                   <CardFooter>

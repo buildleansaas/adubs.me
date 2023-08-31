@@ -1,166 +1,22 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Github, Linkedin, Twitter } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
+
+import { PORTFOLIO } from "@/data/portfolio";
+import { HEADER_LINKS, ICON_LINKS } from "@/data/header";
+import { SKILLS } from "@/data/skills";
+import { SERVICES } from "@/data/services";
+import { TESTMONIALS } from "@/data/testimonials";
 
 export const metadata: Metadata = {
   title: "Austin Witherow | Software Developer for Hire",
   description:
     "Looking for a software developer to work on an app, website or idea? Austin Witherow has been in the industry for over 12 years and is ready to help you with your next project.",
 };
-
-const HEADER_LINKS = [
-  {
-    link: "#about",
-    text: "About",
-  },
-  { link: "#services", text: "Services" },
-  { link: "#portfolio", text: "Portfolio" },
-];
-
-const ICON_LINKS = [
-  { name: "X", url: "https://x.com/aegiswishes1", icon: <Twitter size="18" /> },
-  {
-    name: "Linkedin",
-    url: "https://www.linkedin.com/in/austinwitherow/",
-    icon: <Linkedin size="18" />,
-  },
-  {
-    name: "Github",
-    url: "https://www.github.com/awitherow",
-    icon: <Github size="18" />,
-  },
-];
-
-const SKILLS = [
-  "HTML",
-  "CSS",
-  "Javascript",
-  "Reactjs",
-  "Nextjs",
-  "React Native",
-  "Node",
-  "Python",
-  "SEO",
-  "Programmatic SEO",
-  "Analytics",
-  "ChatGPT",
-  "Scrum",
-  "Agile",
-];
-
-const SERVICES = [
-  {
-    name: "Pair Programming",
-    description: "70 Minutes of focused planning and coding together.",
-    content: (
-      <div className="space-y-4">
-        <p>
-          This package is perfect if you have a problem you are stuck on and need an expert set of eyes to help resolve
-          it. Whether you&apos;re trying to set up your project, you&apos;re stuck on a bug, or want to do some in depth
-          planning, this package is for you.
-        </p>
-        <p>
-          Use coupon code <Badge>SAVE</Badge> for 50% off!
-        </p>
-      </div>
-    ),
-    price: 150,
-    discounted: 75,
-    link: "https://adubs.lemonsqueezy.com/checkout/buy/63df7bb0-1f15-4ae6-891e-25eaf189c950",
-  },
-  {
-    name: "Software Consulting Monthly Retainer (10 Hours)",
-    description: "Perfect for the small business or startup trying to launch their project professionally on a budget",
-    content: (
-      <div className="space-y-4">
-        <p>
-          Pay for 8 hours and get 10 hours of Software Consulting. Actively supporting Nextjs, React, HTML, CSS,
-          Javascript, Typescript projects. Pay for 8 hours and get 10 hours of work on SaaS Feature. Actively supporting
-          Nextjs, React, HTML, CSS, Javascript, Typescript projects. Also includes pair programming sessions, Agile and
-          Scrum Project Management Facilitation.
-        </p>
-      </div>
-    ),
-    price: 1000,
-    discounted: 800,
-    link: "https://adubs.lemonsqueezy.com/checkout/buy/63df7bb0-1f15-4ae6-891e-25eaf189c950",
-  },
-];
-
-const PORTFOLIO = [
-  {
-    name: "Scale Sleek",
-    description: "Search Engine Optimization for the Rest of Us",
-    type: "Personal",
-    image: "/scalesleek.jpg",
-    content: (
-      <div className="space-y-4">
-        <p>
-          If you know anything about Search Engine Optimization Software, you know that the learning curve to even use
-          them is similar to getting an associates degree. With Scale Sleek, you can drive organic traffic that converts
-          to any website by inputting your URL, and we&apos;ll give you expert SEO insights and recommendations to help
-          boost your Search Engine Results Page rankings without the headache.
-        </p>
-      </div>
-    ),
-    link: "https://scalesleek.app",
-  },
-  {
-    name: "Q.ai - Forbes",
-    description: "Q.ai by Forbes&apos; AI Powered Investing Platform",
-    type: "Client",
-    image: "/qai.png",
-    content: (
-      <div className="space-y-4">
-        <p>
-          Q.ai is an AI-powered wealth management app offering curated Investment Kits for optimized fund growth. As the
-          lead engineer for the Funds In Funds Out Squad, I oversaw React Native app and Ruby on Rails backend
-          development, handling seamless bank interactions and fund management. I also played a key role in app
-          performance analysis, ensuring a smooth user experience.
-        </p>
-      </div>
-    ),
-    link: "https://tryq.ai",
-  },
-  {
-    name: "Ubuntu Med Spa",
-    description: "Website and Blog for Med Spa Client",
-    type: "Client",
-    image: "/ubuntumedspa.png",
-    content: (
-      <div className="space-y-4">
-        <p>
-          Ubuntu Med Spa is a Med Spa in New Kent, Virginia. I was hired to build a simple marketing site for them.
-          Instead of going with a complex and costly implementation, we kept overall costs down to $20 a MONTH and are
-          driving organic traffic successfully via search engine optimization.
-        </p>
-      </div>
-    ),
-    link: "https://tryq.ai",
-  },
-  {
-    name: "Hawai'i School fo Yoga",
-    description: "Website and Blog for Yoga Studio",
-    type: "Client",
-    image: "/hsy.jpg",
-    content: (
-      <div className="space-y-4">
-        <p>
-          Hawai&apos;i school of Yoga is a Yoga Studio based in Oahu, Hawai&apos;i, where I trained to become a Yoga
-          Instructor and recieved my 500 hour yoga teacher training certificate. Instead of going with a complex and
-          costly implementation, we kept overall costs down to $20 a YEAR and are driving organic traffic successfully
-          via search engine optimization.
-        </p>
-      </div>
-    ),
-    link: "https://tryq.ai",
-  },
-];
 
 export default function Home() {
   return (
@@ -208,7 +64,7 @@ export default function Home() {
           </div>
         </div>
         <div className="my-8" id="about">
-          <h3 className="font-bold text-lg mb-3">About</h3>
+          <h3 className="font-bold text-2xl mb-3">About</h3>
           <div className="space-y-6">
             <p className="leading-7">
               My journey with coding started with cutomizing my friends Myspace Profiles in the early 2000s. Since then,
@@ -216,7 +72,7 @@ export default function Home() {
             </p>
             <p className="leading-7">
               I have learned a lot about what to do, and especially what not to do, when building any software
-              application or service.
+              application or service, be it a simple website or a complex web application.
             </p>
             <p className="leading-7">
               I am typically hired when a company has a bottleneck, error or complex feature implementation they cannot
@@ -252,7 +108,7 @@ export default function Home() {
       <div className="max-w-7xl mx-auto p-4">
         <div>
           <div className="my-8" id="services">
-            <h3 className="font-bold text-lg mb-4">Services</h3>
+            <h3 className="font-bold text-2xl mb-4">Services</h3>
             <div className="gap-6 grid grid-cols-1 md:grid-cols-2 ">
               {SERVICES.map(({ name, description, content, price, discounted, link }) => (
                 <Card key={name}>
@@ -280,7 +136,7 @@ export default function Home() {
             </div>
           </div>
           <div className="my-8" id="portfolio">
-            <h3 className="font-bold text-lg mb-4">Portfolio</h3>
+            <h3 className="font-bold text-2xl mb-4">Portfolio</h3>
             <div className="gap-6 grid grid-cols-1 md:grid-cols-2 ">
               {PORTFOLIO.map(({ name, description, content, link, image, type }) => (
                 <Card key={name}>
@@ -291,7 +147,8 @@ export default function Home() {
                     <CardDescription>{description}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <img alt={name} src={image} className="mb-4 rounded-lg" />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img alt={name} src={`/portfolio/${image}`} className="mb-4 rounded-lg" />
                     <>{content}</>
                   </CardContent>
                   <CardFooter>
@@ -301,6 +158,28 @@ export default function Home() {
                       </Link>
                     </Button>
                   </CardFooter>
+                </Card>
+              ))}
+            </div>
+          </div>
+          <div className="my-8" id="testimonials">
+            <h3 className="font-bold text-2xl mb-4">Testimonials</h3>
+            <div className="gap-6 grid grid-cols-1 md:grid-cols-2 ">
+              {TESTMONIALS.map(({ name, context, text, img }) => (
+                <Card key={name}>
+                  <CardHeader>
+                    <CardTitle className="leading-7">&quot;{text}&quot;</CardTitle>
+                    <CardDescription className="flex items-center">
+                      <Image
+                        height={50}
+                        width={50}
+                        src={`/testimonials/${img}`}
+                        alt={`Image of ${name} - ${context}`}
+                        className="rounded-full mr-2"
+                      />{" "}
+                      {name} - {context}
+                    </CardDescription>
+                  </CardHeader>
                 </Card>
               ))}
             </div>

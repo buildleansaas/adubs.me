@@ -1,113 +1,277 @@
-import Image from 'next/image'
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Github, Linkedin, Twitter } from "lucide-react";
+import { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { twMerge } from "tailwind-merge";
+
+export const metadata: Metadata = {
+  title: "Austin Witherow | Software Developer for Hire",
+  description:
+    "Looking for a software developer to work on an app, website or idea? Austin Witherow has been in the industry for over 12 years and is ready to help you with your next project.",
+};
+
+const HEADER_LINKS = [
+  {
+    link: "#about",
+    text: "About",
+  },
+  { link: "#services", text: "Services" },
+  { link: "#portfolio", text: "Portfolio" },
+];
+
+const ICON_LINKS = [
+  { name: "X", url: "https://x.com/aegiswishes1", icon: <Twitter size="18" /> },
+  {
+    name: "Linkedin",
+    url: "https://www.linkedin.com/in/austinwitherow/",
+    icon: <Linkedin size="18" />,
+  },
+  {
+    name: "Github",
+    url: "https://www.github.com/awitherow",
+    icon: <Github size="18" />,
+  },
+];
+
+const SKILLS = [
+  "HTML",
+  "CSS",
+  "Javascript",
+  "Reactjs",
+  "Nextjs",
+  "React Native",
+  "Node",
+  "Python",
+  "SEO",
+  "Programmatic SEO",
+  "Analytics",
+  "ChatGPT",
+  "Scrum",
+  "Agile",
+];
+
+const SERVICES = [
+  {
+    name: "Pair Programming",
+    description: "70 Minutes of focused planning and coding together.",
+    content: (
+      <div className="space-y-4">
+        <p>
+          This package is perfect if you have a problem you are stuck on and need an expert set of eyes to help resolve
+          it. Whether you&apos;re trying to set up your project, you&apos;re stuck on a bug, or want to do some in depth
+          planning, this package is for you.
+        </p>
+        <p>
+          Use coupon code <Badge>SAVE</Badge> for 50% off!
+        </p>
+      </div>
+    ),
+    price: 150,
+    discounted: 75,
+    link: "https://adubs.lemonsqueezy.com/checkout/buy/63df7bb0-1f15-4ae6-891e-25eaf189c950",
+  },
+  {
+    name: "Software Consulting Monthly Retainer (10 Hours)",
+    description: "Perfect for the small business or startup trying to launch their project professionally on a budget",
+    content: (
+      <div className="space-y-4">
+        <p>
+          Pay for 8 hours and get 10 hours of Software Consulting. Actively supporting Nextjs, React, HTML, CSS,
+          Javascript, Typescript projects. Pay for 8 hours and get 10 hours of work on SaaS Feature. Actively supporting
+          Nextjs, React, HTML, CSS, Javascript, Typescript projects. Also includes pair programming sessions, Agile and
+          Scrum Project Management Facilitation.
+        </p>
+      </div>
+    ),
+    price: 1000,
+    discounted: 800,
+    link: "https://adubs.lemonsqueezy.com/checkout/buy/63df7bb0-1f15-4ae6-891e-25eaf189c950",
+  },
+];
+
+const PORTFOLIO = [
+  {
+    name: "Scale Sleek",
+    description: "Search Engine Optimization for the Rest of Us",
+    type: "Personal",
+    image: "/scalesleek.jpg",
+    content: (
+      <div className="space-y-4">
+        <p>
+          If you know anything about Search Engine Optimization Software, you know that the learning curve to even use
+          them is similar to getting an associates degree. With Scale Sleek, you can drive organic traffic that converts
+          to any website by inputting your URL, and we&apos;ll give you expert SEO insights and recommendations to help
+          boost your Search Engine Results Page rankings without the headache.
+        </p>
+      </div>
+    ),
+    link: "https://scalesleek.app",
+  },
+  {
+    name: "Q.ai - Forbes",
+    description: "Q.ai by Forbes&apos; AI Powered Investing Platform",
+    type: "Client",
+    image: "/qai.png",
+    content: (
+      <div className="space-y-4">
+        <p>
+          Q.ai is an AI-powered wealth management app offering curated Investment Kits for optimized fund growth. As the
+          lead engineer for the Funds In Funds Out Squad, I oversaw React Native app and Ruby on Rails backend
+          development, handling seamless bank interactions and fund management. I also played a key role in app
+          performance analysis, ensuring a smooth user experience.
+        </p>
+      </div>
+    ),
+    link: "https://tryq.ai",
+  },
+];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <div className="max-w-3xl mx-auto">
+        <div className="flex justify-between items-center gap-4">
+          <div className="flex justify-start items-center gap-4 mt-8 mb-12">
+            {HEADER_LINKS.map(({ link, text }) => (
+              <Link key={link} href={link} className="font-light hover:text-purple-500 hover:font-bold">
+                {text}
+              </Link>
+            ))}
+          </div>
+          <div className="flex gap-4">
+            {ICON_LINKS.map(({ name, icon, url }) => (
+              <Link key={name} className="hover:text-purple-500" href={url}>
+                {icon}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="flex flex-col text-center md:flex-row md:text-left items-center gap-4 mb-12">
+          <Image
+            className="rounded-full"
+            alt="profile picture of Austin Witherow"
+            src="/me.jpg"
+            height={148}
+            width={148}
+          />
+          <div>
+            <div>
+              <h1 className="text-2xl font-semibold">Austin Witherow</h1>
+              <h2 className="text-lg font-light">Software Developer for Hire</h2>
+              <div className="my-2">
+                {SKILLS.map((skill, i) => (
+                  <Badge className={twMerge("m-1", i === 0 && "my-1 mr-0 ml-1")} key={skill}>
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+              <Button className="py-1 px-4 mt-2 hover:bg-purple-500" asChild>
+                <Link href="#services">Work with Me</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div className="my-8" id="about">
+          <h3 className="font-bold text-lg mb-3">About</h3>
+          <div className="space-y-6">
+            <p className="leading-7">
+              My journey with coding started with cutomizing my friends Myspace Profiles in the early 2000s. Since then,
+              I have worked with Fortune 500 Companies, Small Businesses and Startups worldwide.
+            </p>
+            <p className="leading-7">
+              I have learned a lot about what to do, and especially what not to do, when building any software
+              application or service.
+            </p>
+            <p className="leading-7">
+              I am typically hired when a company has a bottleneck, error or complex feature implementation they cannot
+              solve. Regardless of the technical problem, my skills in diagnosing the root cause or actual desired
+              result and providing a simplified yet effective approach has been my calling card.
+            </p>
+            <p className="leading-7">
+              If you find yourself a situation where you need help solving a problem, or developing a new solution, I
+              would love to get in touch with you.
+            </p>
+            <p className="leading-7">
+              You can check out my{" "}
+              <Link className="font-bold text-purple-500 hover:text-purple-900" href="#portfolio">
+                portfolio
+              </Link>{" "}
+              below for samples of my work, and my most recent{" "}
+              <Link
+                className="font-bold text-purple-500 hover:text-purple-900"
+                href="https://docs.google.com/document/d/1-hVL9NgwoR_s-SmsexrG8pp5N7HVEbJYWChiSM41svQ/edit?usp=sharing"
+                target="_blank"
+              >
+                resume
+              </Link>{" "}
+              for work experience. If you like what you see and want to work with me, check out the{" "}
+              <Link className="font-bold text-purple-500 hover:text-purple-900" href="#services">
+                services
+              </Link>{" "}
+              below to see how we can work together.
+            </p>
+          </div>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="max-w-7xl mx-auto p-4">
+        <div>
+          <div className="my-8" id="services">
+            <h3 className="font-bold text-lg mb-4">Services</h3>
+            <div className="gap-6 grid grid-cols-1 md:grid-cols-2 ">
+              {SERVICES.map(({ name, description, content, price, discounted, link }) => (
+                <Card key={name}>
+                  <CardHeader>
+                    <CardTitle>{name}</CardTitle>
+                    <CardDescription>{description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>{content}</CardContent>
+                  <CardFooter>
+                    <Button asChild>
+                      <Link href={link} className="hover:bg-purple-500">
+                        {discounted ? (
+                          <>
+                            <span className="line-through mr-1">${price}</span>
+                            <span>${discounted}</span>
+                          </>
+                        ) : (
+                          `$${price}`
+                        )}
+                      </Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          </div>
+          <div className="my-8" id="portfolio">
+            <h3 className="font-bold text-lg mb-4">Portfolio</h3>
+            <div className="gap-6 grid grid-cols-1 md:grid-cols-2 ">
+              {PORTFOLIO.map(({ name, description, content, link, image }) => (
+                <Card key={name}>
+                  <CardHeader>
+                    <CardTitle>{name}</CardTitle>
+                    <CardDescription>{description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <img alt={name} src={image} />
+                    <>{content}</>
+                  </CardContent>
+                  <CardFooter>
+                    <Button asChild>
+                      <Link href={link} className="hover:bg-purple-500">
+                        Check it Out!
+                      </Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    </>
+  );
 }

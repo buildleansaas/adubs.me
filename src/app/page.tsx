@@ -1,16 +1,4 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { twMerge } from "tailwind-merge";
-
-import { PORTFOLIO } from "@/data/portfolio";
-import { HEADER_LINKS, ICON_LINKS } from "@/data/header";
-import { SKILLS } from "@/data/skills";
-import { SERVICES } from "@/data/services";
-import { TESTMONIALS } from "@/data/testimonials";
 import Header from "@/views/header";
 import Profile from "@/views/profile";
 import About from "@/views/about";

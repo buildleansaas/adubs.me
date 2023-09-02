@@ -35,7 +35,11 @@ export default function About() {
           >
             resume
           </Link>{" "}
-          for work experience. If you like what you see and want to work with me, check out the{" "}
+          for work experience and some{" "}
+          <Link className="font-bold text-purple-500 hover:text-purple-900" href="#testimonials">
+            testimonials
+          </Link>{" "}
+          from people I have worked with. If you like what you see and want to work with me, check out the{" "}
           <Link className="font-bold text-purple-500 hover:text-purple-900" href="#services">
             services
           </Link>{" "}

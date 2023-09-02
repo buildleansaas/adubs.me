@@ -7,7 +7,7 @@ const PORTFOLIO = [
   {
     name: "📈 Scale Sleek",
     description: "Search Engine Optimization for the Rest of Us",
-    type: "Personal",
+    type: "Full Featured SaaS",
     image: "/scalesleek.jpg",
     content: (
       <div className="space-y-4">
@@ -24,7 +24,7 @@ const PORTFOLIO = [
   {
     name: "💸 Q.ai - Forbes",
     description: "Q.ai by Forbes&apos; AI Powered Investing Platform",
-    type: "Client",
+    type: "React Native Client",
     image: "/qai.png",
     content: (
       <div className="space-y-4">
@@ -41,7 +41,7 @@ const PORTFOLIO = [
   {
     name: "💅 Ubuntu Med Spa",
     description: "Website and Blog for Med Spa Client",
-    type: "Client",
+    type: "Local SEO Client",
     image: "/ubuntumedspa.png",
     content: (
       <div className="space-y-4">
@@ -55,9 +55,9 @@ const PORTFOLIO = [
     link: "https://ubuntumedspa.com",
   },
   {
-    name: "🧘‍♀️ Hawai'i School fo Yoga",
+    name: "🧘‍♀️ Hawai'i School of Yoga",
     description: "Website and Blog for Yoga Studio",
-    type: "Client",
+    type: "Local SEO Client",
     image: "/hsy.jpg",
     content: (
       <div className="space-y-4">
@@ -66,6 +66,22 @@ const PORTFOLIO = [
           Instructor and recieved my 500 hour yoga teacher training certificate. Instead of going with a complex and
           costly implementation, we kept overall costs down to $20 a YEAR and are driving organic traffic successfully
           via search engine optimization.
+        </p>
+      </div>
+    ),
+    link: "https://hawaiischoolofyoga.com",
+  },
+  {
+    name: "🕸️ Quick Urchin",
+    description: "Micro SaaS for Generating UTM Parameters",
+    type: "Micro SaaS",
+    image: "/quickurchin.png",
+    content: (
+      <div className="space-y-4">
+        <p>
+          Quick Urchin is a Micro SaaS that I built to help marketers generate UTM parameters for their marketing
+          campaigns. It simplifies the steps of crafting urls with multiple query params into a simple form and
+          generates the url for you. It also saves your history so you can easily copy and paste your previous urls.
         </p>
       </div>
     ),

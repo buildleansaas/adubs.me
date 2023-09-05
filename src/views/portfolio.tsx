@@ -85,7 +85,24 @@ const PORTFOLIO = [
         </p>
       </div>
     ),
-    link: "https://hawaiischoolofyoga.com",
+    link: "https://quickurchin.com",
+  },
+  {
+    name: "🍼 PedsCalc",
+    description: "Micro SaaS for Pediatric Dosing Calculations",
+    type: "Micro SaaS",
+    image: "/pedscalc.png",
+    content: (
+      <div className="space-y-4">
+        <p>
+          PedsCalc is a Micro SaaS that I built to assist healthcare professionals with pediatric dosing calculations.
+          It streamlines the process of determining the correct medication dosages for children based on their weight
+          and other vital parameters. This ensures safe and effective medication delivery, tailoring each dose to the
+          individual child&apos;s needs.
+        </p>
+      </div>
+    ),
+    link: "https://pedscalc.com",
   },
 ];
 

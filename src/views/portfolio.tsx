@@ -104,6 +104,23 @@ const PORTFOLIO = [
     ),
     link: "https://pedscalc.com",
   },
+  {
+    name: "⚡️ Swift Schema",
+    description: "Next-Gen Tool for Intuitive Schema Markup Generation",
+    type: "Micro SaaS",
+    image: "/swiftschema.png",
+    content: (
+      <div className="space-y-4">
+        <p>
+          Swift Schema is a Micro SaaS designed to revolutionize the way webmasters and digital marketers implement
+          schema markup. It streamlines the process, ensuring websites communicate effectively with search engines
+          through structured data. Tailored for both beginners and experts, it&apos;s an essential tool in the modern
+          SEO toolkit.
+        </p>
+      </div>
+    ),
+    link: "https://swiftschema.com",
+  },
 ];
 
 export default function Portfolio() {

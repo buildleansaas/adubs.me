@@ -121,6 +121,23 @@ const PORTFOLIO = [
     ),
     link: "https://swiftschema.com",
   },
+  {
+    name: "📍 Local Biz Legends",
+    description: "A Local Business Search Engine Optimization Consultancy",
+    type: "SEO Consulting Service",
+    image: "/localbizlegends.png",
+    content: (
+      <div className="space-y-4">
+        <p>
+          LocalBizLegends is designed to uplift and showcase the best of local businesses, offering them a platform for
+          both recognition and growth. Aimed to bridge the gap between local businesses and consumers, it fosters a
+          community of support and appreciation. Whether you&apos;re a business owner aiming to expand your footprint or
+          a consumer looking to discover local gems, LocalBizLegends is your go-to destination.
+        </p>
+      </div>
+    ),
+    link: "https://localbizlegends.com",
+  },
 ];
 
 export default function Portfolio() {

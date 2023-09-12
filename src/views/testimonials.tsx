@@ -31,7 +31,7 @@ export default function Testimonials() {
           <Card key={name}>
             <CardHeader>
               <CardTitle className="leading-7">&quot;{text}&quot;</CardTitle>
-              <CardDescription className="flex items-center">
+              <CardDescription className="flex items-center pt-2">
                 <Image
                   height={50}
                   width={50}
@@ -39,7 +39,10 @@ export default function Testimonials() {
                   alt={`Image of ${name} - ${context}`}
                   className="rounded-full mr-2"
                 />{" "}
-                {name} - {context}
+                <div className="">
+                  <h4 className="text-lg font-light my-0">{name}</h4>
+                  <p className="font-light my-0">{context}</p>
+                </div>
               </CardDescription>
             </CardHeader>
           </Card>

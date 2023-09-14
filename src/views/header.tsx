@@ -9,6 +9,7 @@ const HEADER_LINKS = [
   { link: "#services", text: "Services" },
   { link: "#portfolio", text: "Portfolio" },
   { link: "#testimonials", text: "Testimonials" },
+  { link: "guides", text: "Guides" },
 ];
 
 const ICON_LINKS = [

@@ -30,9 +30,8 @@ const SERVICES = [
       <div className="space-y-4">
         <p>
           Pay for 8 hours and get 10 hours of Software Consulting. Actively supporting Nextjs, React, HTML, CSS,
-          Javascript, Typescript projects. Pay for 8 hours and get 10 hours of work on SaaS Feature. Actively supporting
-          Nextjs, React, HTML, CSS, Javascript, Typescript projects. Also includes pair programming sessions, Agile and
-          Scrum Project Management Facilitation.
+          Javascript, Typescript projects. Also includes pair programming sessions, Agile and Scrum Project Management
+          Facilitation.
         </p>
       </div>
     ),

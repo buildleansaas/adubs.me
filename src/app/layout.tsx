@@ -3,6 +3,7 @@ import Header from "@/views/header";
 
 import "./globals.css";
 import { Button } from "@/components/ui/button";
+import { ThemeProvider } from "@/components/theme-provider";
 import Link from "next/link";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -31,18 +32,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </>
       )}
       <body className="p-4">
-        <Header />
-        {children}
-        <footer className="text-center max-w-3xl mx-auto mt-32">
-          <h2 className="text-2xl font-bold">Is it Meant to Be?</h2>
-          <p className="my-4">
-            If you&apos;re liking what I&apos;m putting down and think that I could help you, don&apos;t hesitate. Reach
-            out today and let&apos;s get started working together.
-          </p>
-          <Button asChild>
-            <Link href="#services">Get Started</Link>
-          </Button>
-        </footer>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          {children}
+          <footer className="text-center max-w-3xl mx-auto mt-32">
+            <h2 className="text-2xl font-bold">Is it Meant to Be?</h2>
+            <p className="my-4">
+              If you&apos;re liking what I&apos;m putting down and think that I could help you, don&apos;t hesitate.
+              Reach out today and let&apos;s get started working together.
+            </p>
+            <Button asChild>
+              <Link href="#services">Get Started</Link>
+            </Button>
+          </footer>
+        </ThemeProvider>
       </body>
     </html>
   );

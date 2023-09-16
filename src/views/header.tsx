@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Github, Linkedin, Twitter } from "lucide-react";
+import { ModeToggle } from "@/components/dark-mode-toggle";
 
 const HEADER_LINKS = [
   {
@@ -36,12 +37,13 @@ export default function Header() {
           </Link>
         ))}
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 justify-start items-center">
         {ICON_LINKS.map(({ name, icon, url }) => (
           <Link key={name} className="hover:text-purple-500" href={url}>
             {icon}
           </Link>
         ))}
+        <ModeToggle />
       </div>
     </div>
   );

@@ -39,38 +39,59 @@ interface JumbotronProps {
 }
 
 const Jumbotron = ({ headline, subline, sales_pitch, cta_text, cta_link, visual, visual_alt }: JumbotronProps) => (
-  <div className="my-16 md:my-24 xl:flex xl:items-center">
-    <div className="text-center xl:text-left">
-      <h2 className="text-3xl md:text-5xl xl:text-7xl font-semibold">{headline}</h2>
-      <p className="text-xl md:text-3xl xl:text-5xl mt-2 xl:mt-8 font-light xl:leading-13">{subline}</p>
-      <p className="text-2xl font-light leading-9 h-0 xl:h-auto xl:mt-8 xl:visible xl:opacity-100 invisible opacity-0">
-        {sales_pitch}
-      </p>
-      <div className="my-8 space-x-2">
-        <Button size="sm">
-          <Link href={cta_link ?? ""} target="_blank">
-            {cta_text}
-          </Link>
-        </Button>
-        <Button size="sm" variant="secondary">
-          <Link href="#benefits" target="_blank">
-            What&apos;s In It For Me?
-          </Link>
-        </Button>
+  <>
+    <div className="my-16 md:my-24 xl:my-48 xl:flex xl:items-center">
+      <div className="text-center xl:text-left">
+        <h2 className="text-3xl md:text-5xl xl:text-7xl font-semibold">{headline}</h2>
+        <p className="text-xl md:text-3xl xl:text-5xl mt-2 xl:mt-8 font-light xl:leading-13">{subline}</p>
+        <p className="text-2xl font-light leading-9 mt-8 hidden xl:inline-block">{sales_pitch}</p>
+        <div className="my-8 space-x-2">
+          <Button>
+            <Link href={cta_link ?? ""} target="_blank">
+              {cta_text}
+            </Link>
+          </Button>
+          <Button variant="secondary">
+            <Link href="#benefits" target="_blank">
+              What&apos;s In It For Me?
+            </Link>
+          </Button>
+        </div>
       </div>
+      <img src={visual ?? ""} alt={visual_alt ?? ""} className="rounded-xl mx-auto max-w-screen md:max-w-md xl:ml-12" />
     </div>
-    <img src={visual ?? ""} alt={visual_alt ?? ""} className="rounded-xl mx-auto max-w-md xl:ml-12" />
-  </div>
+    <p className="text-xl md:text-2xl text-center font-light leading-9 xl:hidden">{sales_pitch}</p>
+  </>
+);
+
+
+interface BenefitsProps {
+  benefits: string[];
+  headline?: string;
+  subline?: string;
+}
+
+const Benefits = ({ benefits, headline, subline }: BenefitsProps) => (
+
+    <div className="my-16 md:my-24 xl:my-48 xl:flex xl:items-center">
+      <div className="text-center xl:text-left">
+        <h2 className="text-3xl md:text-5xl xl:text-7xl font-semibold">{headline}</h2>
+        <p className="text-xl md:text-3xl xl:text-5xl mt-2 xl:mt-8 font-light xl:leading-13">{subline}</p>
+        
+    </div>
+
 );
 
 export default async function GuidePage({ params: { slug } }: { params: { slug: string } }) {
   const guide = getGuide(slug);
 
   const jumbotronProps = { ...guide?.jumbotron, cta_link: guide?.cta_link };
+  cosnt benefitsProps = {...guide?.benefits, headline: guide?.benefitsHeadline, subline: guide?.benefitsSubline}
 
   return (
     <div className="max-w-7xl mx-auto">
       <Jumbotron {...jumbotronProps} />
+      <Benefits {...benefitsProps} />
     </div>
   );
 }

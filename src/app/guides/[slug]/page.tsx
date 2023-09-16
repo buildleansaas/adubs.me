@@ -4,6 +4,9 @@ import { guides } from "@/data/guides";
 import Link from "next/link";
 import { Metadata } from "next";
 
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { ChevronRight } from "lucide-react";
+
 const getGuide = (slug: string) => guides?.find((guide) => guide.slug === slug);
 
 export async function generateMetadata({ params: { slug } }: { params: { slug: string } }): Promise<Metadata> {
@@ -64,29 +67,53 @@ const Jumbotron = ({ headline, subline, sales_pitch, cta_text, cta_link, visual,
   </>
 );
 
-
 interface BenefitsProps {
-  benefits: string[];
+  benefits?: { emoji: string; title: string; subline: string; description: string; cta_text: string }[];
   headline?: string;
   subline?: string;
+  cta_link?: string;
 }
 
-const Benefits = ({ benefits, headline, subline }: BenefitsProps) => (
-
-    <div className="my-16 md:my-24 xl:my-48 xl:flex xl:items-center">
-      <div className="text-center xl:text-left">
-        <h2 className="text-3xl md:text-5xl xl:text-7xl font-semibold">{headline}</h2>
-        <p className="text-xl md:text-3xl xl:text-5xl mt-2 xl:mt-8 font-light xl:leading-13">{subline}</p>
-        
+const Benefits = ({ benefits, headline, subline, cta_link }: BenefitsProps) => (
+  <div className="my-16 md:my-24 xl:my-48">
+    <div className="text-center xl:text-left">
+      <h2 className="text-3xl md:text-5xl xl:text-7xl font-semibold">{headline}</h2>
+      <p className="text-xl md:text-3xl xl:text-5xl mt-2 xl:mt-8 font-light xl:leading-13">{subline}</p>
     </div>
-
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 my-8">
+      {benefits?.map(({ emoji, title, subline, description, cta_text }, index) => (
+        <Card key={index} className="border-2 bg-blue-500 border-blue-400 text-white">
+          <CardHeader>
+            <CardTitle>
+              <span className="text-3xl mr-2">{emoji}</span> {title}
+            </CardTitle>
+            <CardDescription className="text-blue-50">{subline}</CardDescription>
+          </CardHeader>
+          <CardContent>{description}</CardContent>
+          <CardFooter>
+            <Button>
+              <Link href={cta_link ?? ""} target="_blank" className="flex items-center">
+                {cta_text}
+                <ChevronRight size={16} className="ml-1" />
+              </Link>
+            </Button>
+          </CardFooter>
+        </Card>
+      ))}
+    </div>
+  </div>
 );
 
 export default async function GuidePage({ params: { slug } }: { params: { slug: string } }) {
   const guide = getGuide(slug);
 
   const jumbotronProps = { ...guide?.jumbotron, cta_link: guide?.cta_link };
-  cosnt benefitsProps = {...guide?.benefits, headline: guide?.benefitsHeadline, subline: guide?.benefitsSubline}
+  const benefitsProps = {
+    benefits: guide?.benefits,
+    headline: guide?.benefitsHeadline,
+    subline: guide?.benefitsSubline,
+    cta_link: guide?.cta_link,
+  };
 
   return (
     <div className="max-w-7xl mx-auto">

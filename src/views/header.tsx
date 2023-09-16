@@ -28,8 +28,8 @@ const ICON_LINKS = [
 
 export default function Header() {
   return (
-    <div className="flex justify-between items-center gap-4">
-      <div className="flex justify-start items-center gap-4 mt-8 mb-12">
+    <div className="flex justify-between items-center gap-4 max-w-3xl mx-auto md:my-6">
+      <div className="flex justify-start items-center gap-2 flex-wrap">
         {HEADER_LINKS.map(({ link, text }) => (
           <Link key={link} href={link} className="font-light hover:text-purple-500 hover:font-bold">
             {text}

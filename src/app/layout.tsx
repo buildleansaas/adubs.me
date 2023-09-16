@@ -31,9 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </>
       )}
       <body className="p-4">
-        <div className="max-w-3xl mx-auto">
-          <Header />
-        </div>
+        <Header />
         {children}
         <footer className="text-center max-w-3xl mx-auto mt-32">
           <h2 className="text-2xl font-bold">Is it Meant to Be?</h2>

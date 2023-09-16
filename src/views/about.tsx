@@ -24,23 +24,23 @@ export default function About() {
         </p>
         <p className="leading-7">
           You can check out my{" "}
-          <Link className="font-bold text-purple-500 hover:text-purple-900" href="#portfolio">
+          <Link className="font-bold text-blue-500 hover:text-blue-900" href="#portfolio">
             portfolio
           </Link>{" "}
           below for samples of my work, and my most recent{" "}
           <Link
-            className="font-bold text-purple-500 hover:text-purple-900"
+            className="font-bold text-blue-500 hover:text-blue-900"
             href="https://docs.google.com/document/d/1-hVL9NgwoR_s-SmsexrG8pp5N7HVEbJYWChiSM41svQ/edit?usp=sharing"
             target="_blank"
           >
             resume
           </Link>{" "}
           for work experience and some{" "}
-          <Link className="font-bold text-purple-500 hover:text-purple-900" href="#testimonials">
+          <Link className="font-bold text-blue-500 hover:text-blue-900" href="#testimonials">
             testimonials
           </Link>{" "}
           from people I have worked with. If you like what you see and want to work with me, check out the{" "}
-          <Link className="font-bold text-purple-500 hover:text-purple-900" href="#services">
+          <Link className="font-bold text-blue-500 hover:text-blue-900" href="#services">
             services
           </Link>{" "}
           below to see how we can work together.

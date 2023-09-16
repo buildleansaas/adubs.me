@@ -32,14 +32,14 @@ export default function Header() {
     <div className="flex justify-between items-center gap-4 max-w-3xl mx-auto md:my-6">
       <div className="flex justify-start items-center gap-4 flex-wrap">
         {HEADER_LINKS.map(({ link, text }) => (
-          <Link key={link} href={link} className="font-light hover:text-purple-500 hover:font-bold">
+          <Link key={link} href={link} className="font-light hover:text-blue-500 hover:font-bold">
             {text}
           </Link>
         ))}
       </div>
       <div className="flex gap-4 justify-start items-center">
         {ICON_LINKS.map(({ name, icon, url }) => (
-          <Link key={name} className="hover:text-purple-500" href={url}>
+          <Link key={name} className="hover:text-blue-500" href={url}>
             {icon}
           </Link>
         ))}

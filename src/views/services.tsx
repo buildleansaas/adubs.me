@@ -55,7 +55,7 @@ export default function Services() {
             <CardContent>{content}</CardContent>
             <CardFooter>
               <Button asChild>
-                <Link href={link} className="hover:bg-purple-500">
+                <Link href={link} className="hover:bg-blue-500">
                   {discounted ? (
                     <>
                       <span className="line-through mr-1">${price}</span>

@@ -36,7 +36,7 @@ export default function Profile() {
               </Badge>
             ))}
           </div>
-          <Button className="py-1 px-4 mt-2 hover:bg-purple-500" asChild>
+          <Button className="py-1 px-4 mt-2 hover:bg-blue-500" asChild>
             <Link href="#services">Work with Me</Link>
           </Button>
         </div>

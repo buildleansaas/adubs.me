@@ -149,7 +149,7 @@ export default function Portfolio() {
           <Card key={name}>
             <CardHeader>
               <CardTitle className="flex justify-between">
-                {name} <Badge className="ml-auto bg-purple-500">{type}</Badge>
+                {name} <Badge className="ml-auto bg-blue-500">{type}</Badge>
               </CardTitle>
               <CardDescription>{description}</CardDescription>
             </CardHeader>
@@ -160,7 +160,7 @@ export default function Portfolio() {
             </CardContent>
             <CardFooter>
               <Button asChild>
-                <Link href={link} className="hover:bg-purple-500">
+                <Link href={link} className="hover:bg-blue-500">
                   Check it Out!
                 </Link>
               </Button>
